@@ -1,0 +1,38 @@
+C=m,n,ŋ,b,d,t,k,p,q,s,ł,l,h
+V=a,i,u
+graphs = .
+
+LI > li
+BLA > bla
+MI > mi
+BMA > bma
+U > u / §_
+TQA > tqa
+
+HA1 > ha
+
+Q > q ! _U
+
+[C][V] >^ _CV / _([C])£
+[V][C] >^ _CV / _[C]£
+-CV
+
+KWA > pa
+NG > aŋ / [C](£)(§){*?}_
+NG > ŋ
+T > t / §_
+HTA > hta
+NTA > anta / [C](£)(§){*?}_
+NTA > nta
+SKI > ski
+NSI > ansi / [C](£)(§){*?}_
+NSI > nsi
+SI > si
+
+IL > ił
+GK > aŋk
+QU > uq
+HA2 > ha / V_
+HA2 > a
+
+-§

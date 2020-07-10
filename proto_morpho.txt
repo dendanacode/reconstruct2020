@@ -1,0 +1,45 @@
+graphs = .
+
+frustrative > LI
+accidental > BLA
+opt > MI
+adm > BMA
+hort > U
+proh > TQA
+-decl
+
+nithem > ni
+dthem > d
+-nullthem
+
+conjunct > HA1
+-nullevid
+
+anim > Q
+-inan
+
+ipfv > CV
+
+-unmarkedvoice / unmarkedaspect
+unmarkedvoice > KWA / dur
+unmarkedvoice > NG / pstpfv
+middle > T / unmarkedaspect
+middle > HTA / dur
+middle > NTA / pstpfv
+caus > SI / unmarkedaspect
+caus > SKI / dur
+caus > NSI / pstpfv
+
+-unmarkedaspect
+-dur
+-pstpfv
+
+-pfv
+
+§here > IL
+§there > GK
+§overthere > QU
+-nullspatial
+
+-nullquestion
+question > HA2

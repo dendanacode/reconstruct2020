@@ -1,0 +1,108 @@
+C=m,n,ŋ,b,d,t,k,p,q,s,ł,l,h,v,p,x,ʔ,č,š
+son=m,n,ŋ,ł,l
+nasal=m,n,ŋ
+plosive1=p,t,k
+fric=s,ł,š,h,x
+plosive=p,b,t,d,č,k,q,ʔ
+liquid=l,ł
+V=a,i,u,e,o,ɨ
+graphs = .
+
+u > i / p_
+
+// General Consonant changes
+
+k > č ! _#
+p > k ! _# > q
+d > t / _#
+d > v
+q > x
+b > p
+
+// Lateral Changes
+
+ł > tł / n_
+l > ł / _#
+-h / ł_
+tl > tł
+s > l / [V]_[V]
+xl > ł
+sl > ł
+
+// NT simplification
+
+[nasal] > [plosive1] / _[liquid]
+[V] > %% / _[nasal][plosive]
+-[nasal] / _[plosive]
+
+// Labial nasalization
+
+p > m / u_
+p > m / _[V][nasal]
+
+// Ablaut
+
+u > e / _([C])([C])i
+a > e / _([C])([C])i
+a > e / _([C])([C])a
+a > u / _([C])([C])u
+u > o / _([C])([C])u
+
+// Initial cluster epenthesis and changes (esp. xC)
+
+[V] >^ #[son]_[C] / #[son][C]_
+x > š / #_[son]
+[V] >^? #x_[C] / #x[C]_[C][V]
+-x / #_[C]
+
+[V] >^ #[plosive]_[plosive] / #[plosive][plosive]_
+
+//Add a vowel after final Consonant cluster
+
+[V] >^ [C][C]_# / _[C][C]#
+
+
+// Ł and l assimilation
+ł > š / _č
+ł > š / č_
+ł > š / _i
+ł > š / i_
+ls > ł
+
+// x-fronting
+x > š / _č
+x > š / č_
+x > š / _i
+x > š / i_
+
+// De-nasalization after fricative
+[nasal] > [plosive1] / [fric]_
+
+// A-raising
+a > ɨ / _#
+a > ɨ / _h
+a > ɨ / _s
+a > ɨ / _k
+a > ɨ / _x
+u > ɨ / i([C])([C])_
+
+// H cluster reduction
+
+h > ʔ / [V]_ ! _[plosive]
+[V] > %% / _h[C]
+[V] >^ ʔ_[C] / _ʔ[C]
+-h / _[C]
+
+// Vowel go mush
+
+eeɨ > ei
+ieɨ > ie
+eɨ > aa
+iɨ > ie
+uaa > ua
+
+// u-labializing
+nu > m / #_[V]
+su > v / #_[V]
+-l / #_u[V]
+ł > š / #_[V]

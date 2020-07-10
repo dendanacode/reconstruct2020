@@ -1,0 +1,13 @@
+C=m,n,ŋ,b,d,t,k,p,q,s,ł,l,h
+stop=b,d,t,k,p,q
+V=a,i,u
+graphs = .
+
+-£
++a / [C]_q[C]
+dd > t
+dh > t
++u / [C][C]_[C]
+[stop] > h / _[stop]#
+
+// p > kw
