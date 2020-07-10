@@ -8,6 +8,9 @@ from src import sce # NOTE: SCE is from https://github.com/KathTheDragon/Conlang
 
 
 def proto_verb_morpho_page():
+
+    st.title('proto-reCONstruct 2020 Verbamatron')
+
     features = {
     'Mood': ['frustrative', 'accidental', 'opt', 'adm', 'hort', 'proh', 'decl']
     , 'Thematic': ['nullthem', 'nithem', 'dthem']

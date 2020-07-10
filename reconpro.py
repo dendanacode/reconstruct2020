@@ -4,13 +4,14 @@ import streamlit as st
 from protomorpho.protomorpho import proto_verb_morpho_page
 
 
-st.title('proto-reCONstruct 2020 Verbamatron')
+
 
 page = st.selectbox('Page', ['Homepage', 'Proto Verb Morpho', 'Proto to A/B derivation', 'A Verb Morpho + Deriv', 'B Verb Morpho + Deriv', 'A/B Deriv'], index=0)
 
 if page == 'Proto Verb Morpho':
     proto_verb_morpho_page()
 elif page == 'Homepage':
+    st.title('reCONstruct 2020 tools')
     st.write("""
 ## Welcome to the reCONstruct 2020 tools site!
 ### The following pages are available for use:
@@ -24,6 +25,7 @@ elif page == 'Homepage':
 -dendana
     """)
 else:
+    st.title('reCONstruct 2020 tools')
     st.write("""
 # Oops!
 I haven't made this page yet.
