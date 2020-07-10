@@ -27,7 +27,7 @@ feature_selections = {}
 for feature, values in features.items():
     if feature != 'STEM':
         if values != []:
-            feature_selections[feature] = st.sidebar.multiselect('{} Features'.format(feature), values, values[0])
+            feature_selections[feature] = st.sidebar.multiselect('{} Features'.format(feature), values, [values[0]])
     elif feature == 'STEM':
         feature_selections[feature] = ['STEM']
 
