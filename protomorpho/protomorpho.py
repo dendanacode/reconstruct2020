@@ -101,7 +101,7 @@ def proto_verb_morpho_page():
     out = []
     for s in stems:
         for i, word in enumerate(step1[s]):
-            print('{} : {}'.format(i, word))
+            #print('{} : {}'.format(i, word))
             features_str = sets_str[s][i].replace('§', '.').replace('£', '.')
             #st.write(features_str)
             features_str = features_str.replace('{}.'.format(s), '')
@@ -110,13 +110,13 @@ def proto_verb_morpho_page():
             word_str = word.replace('§', '.').replace('£', '.')
             phoneme_str = step2[s][i].replace('§', '.').replace('£', '')
             features_list.extend([s, features_str, word_str, phoneme_str, output[s][i]])
-            print(features_list)
+            #print(features_list)
             out.append(features_list)
             #print(features_list)
             #print("{} \n\t > {} \n\t > {} \n\t > {}".format(features_str, word_str, phoneme_str, output[s][i]))
         unique[s] = set(output[s])
 
-    print(out)
+    #print(out)
 
     pandas_forms = pd.DataFrame(out, columns=cols)
 
