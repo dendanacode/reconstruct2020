@@ -25,9 +25,9 @@ elif page == 'Homepage':
 ## Welcome to the reCONstruct 2020 tools site!
 ### The following pages are available for use:
 * Proto Verb Morpho - conjugates verbs in the protolanguage
-* Proto to A derivation - runs sound changes between proto and A/B
+* Proto to A derivation - runs sound changes between proto and A
 ### The following pages may or may not be built sometime:
-* Proto to B derivation - runs sound changes between proto and A/B
+* Proto to B derivation - runs sound changes between proto and B
 * A Verb Morpho + Deriv - conjugates verbs in A and allows you to run your own sound changes on them
 * B Verb Morpho + Deriv - same thing but with B
 * A/B Deriv - derive words from languages A or B using your own SCs
