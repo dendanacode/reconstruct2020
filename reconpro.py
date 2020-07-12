@@ -4,9 +4,6 @@ import streamlit as st
 from protomorpho.protomorpho import proto_verb_morpho_page
 from protoa.protoa import protoa_page
 
-
-
-
 page = st.selectbox('Page', ['Homepage'
 , 'Proto Verb Morpho'
 , 'Proto to A derivation'

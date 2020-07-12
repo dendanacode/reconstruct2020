@@ -12,6 +12,7 @@ def protoa_page():
     st.title('proto -> A Derivamatron')
 
     show_in = st.checkbox('Show input in output', value=False)
+    pos = st.radio('Part of Speech', ['Noun (inan)', 'Noun (anim)', 'Verb (inan)', 'Verb (anim)', 'Other'], index=4)
 
     words = st.text_area('Words to derive', value='')
     output = []
@@ -19,6 +20,11 @@ def protoa_page():
     words = words.split('\n')
 
     st.write("## Results in A:")
+
+    # if pos == 'Noun (inan)':
+    #     with open('protomorpho/proto_ninan.txt', 'r') as t:
+    #         ruleset = t.read()
+    #         words = sce.run(words, ruleset, output='list')
 
     with open('protomorpho/proto_phono.txt', 'r') as t:
         ruleset = t.read()

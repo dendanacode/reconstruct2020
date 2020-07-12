@@ -61,7 +61,6 @@ x > š / #_[son]
 
 [V] >^ [C][C]_# / _[C][C]#
 
-
 // Ł and l assimilation
 ł > š / _č
 ł > š / č_
@@ -74,6 +73,10 @@ x > š / _č
 x > š / č_
 x > š / _i
 x > š / i_
+
+// palatal assimilation
+s > š / č_
+s > š / _č
 
 // De-nasalization after fricative
 [nasal] > [plosive1] / [fric]_
@@ -92,6 +95,12 @@ h > ʔ / [V]_ ! _[plosive]
 [V] > %% / _h[C]
 [V] >^ ʔ_[C] / _ʔ[C]
 -h / _[C]
+sh > š
+
+// S and š changes
+s > š / _š
+s > š / š_
+tš > č
 
 // Vowel go mush
 

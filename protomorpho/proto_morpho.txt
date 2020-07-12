@@ -12,8 +12,8 @@ nithem > ni
 dthem > d
 -nullthem
 
+-nonconjunct
 conjunct > HA1
--nullevid
 
 anim > Q
 -inan

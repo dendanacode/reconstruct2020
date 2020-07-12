@@ -14,7 +14,7 @@ def proto_verb_morpho_page():
     features = {
     'Mood': ['frustrative', 'accidental', 'opt', 'adm', 'hort', 'proh', 'decl']
     , 'Thematic': ['nullthem', 'nithem', 'dthem']
-    , 'Evidential': ['nullevid', 'conjunct']
+    , 'Conjunct': ['nonconjunct', 'conjunct']
     , 'Animacy': ['anim', 'inan']
     # , 'Transitivity': ['tr']
     , 'STEM': ['STEM']
@@ -22,7 +22,7 @@ def proto_verb_morpho_page():
     , 'Voice': ['unmarkedvoice', 'middle', 'caus']
     , 'Aspect_2': ['dur', 'pstpfv', 'unmarkedaspect']
     , 'Spatial': ['here', 'there', 'overthere', 'nullspatial']
-    , 'Question': ['question', 'nullquestion']
+    #, 'Question': ['question', 'nullquestion']
 
     # , 'dynamic': ['static', 'dynamic']
     }
