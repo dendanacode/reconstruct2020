@@ -3,6 +3,7 @@ import streamlit as st
 #from src import sce # NOTE: SCE is from https://github.com/KathTheDragon/Conlanger and is by KathTheDragon
 from protomorpho.protomorpho import proto_verb_morpho_page
 from protoa.protoa import protoa_page
+from a_langs.a import a_page
 
 page = st.selectbox('Page', ['Homepage'
 , 'Proto Verb Morpho'
@@ -10,12 +11,15 @@ page = st.selectbox('Page', ['Homepage'
 , 'Proto to B derivation'
 , 'A Verb Morpho + Deriv'
 , 'B Verb Morpho + Deriv'
-, 'A/B Deriv'], index=0)
+, 'A Deriv'
+, 'B Deriv'], index=0)
 
 if page == 'Proto Verb Morpho':
     proto_verb_morpho_page()
 elif page == 'Proto to A derivation':
     protoa_page()
+elif page == 'A Deriv':
+    a_page()
 elif page == 'Homepage':
     st.title('reCONstruct 2020 tools')
     st.write("""

@@ -1,0 +1,48 @@
+C=m,n,ŋ,b,d,t,k,p,q,s,ł,l,h,v,p,x,ʔ,č,š,c,f
+son=m,n,ŋ,ł,l
+nasal=m,n,ŋ
+plosive1=p,t,k
+fric=f,s,ł,š,h,x
+plosive=p,b,t,d,c,č,k,q,ʔ
+liquid=l,ł
+V=a,i,u,e,o,ɨ
+vl=p,t,č,k,s,š
+vd=b,d,ǰ,g,z,ž
+high=i,ɨ,u
+graphs = .
+
+aV > aa / [C]_
+ɨV > aa / [C]_
+eV > ii / [C]_
+iV > ii / [C]_
+oV > ou / [C]_
+uV > ou / [C]_
+-V
+
+
+v > f
+
+[nasal]l > ll
+[fric]l > łł
+[plosive]l > tł
+
+t > c / _[high] ! _ł
+t > c / [high]_ ! _ł
+
+[V] > %% / _[fric][plosive]
+[V] > %% / _[fric][fric]
+-[fric] / [V]_[plosive]
+-[fric] / [V]_[fric]
+-h
+x > h
+
+ie > ee
+ei > ee
+ua > oo
+o > u ! _o
+ou > oo
+
++ɨ / #h_[C]
+[C] >^? #_[V][C] / #[V]_[C]
+
+c > ts
