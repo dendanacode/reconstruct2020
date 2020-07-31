@@ -4,10 +4,15 @@ nasal=m,n,ŋ
 plosive1=p,t,k
 fric=s,ł,š,h,x
 plosive=p,b,t,d,č,k,q,ʔ
+plosive2=p,t,č,k
+nasal2=m,n,n,ŋ
 liquid=l,ł
 V=a,i,u,e,o,ɨ
 vl=p,t,č,k,s,š
 vd=b,d,ǰ,g,z,ž
+back=o,u
+front=a,e,i,ɨ
+sound=m,n,ŋ,b,d,t,k,p,q,s,ł,l,h,v,p,x,ʔ,č,š,a,i,u,e,o,ɨ
 graphs = .
 
 aV > aa / [C]_
@@ -16,7 +21,13 @@ eV > ii / [C]_
 iV > ii / [C]_
 oV > ou / [C]_
 uV > ou / [C]_
+[V] >^ V_ / _(([C])[C])V
 -V
+
+// reduplication: * >^ _R
+
+A > o / _(([C])[C])[back]
+A > e / _(([C])[C])[front]
 
 št > st
 tk > č
@@ -35,6 +46,7 @@ x > š
 ł > š
 tš > č
 
+[plosive2] > [nasal2] / _[nasal]
 [vl] > [vd] / [nasal]_
 [vl] > [vd] / _[nasal]
 -ŋ

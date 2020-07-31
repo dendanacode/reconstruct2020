@@ -12,6 +12,8 @@ vd2=m,n,ñ,ŋ,v,ž
 high=i,ɨ,u
 velar=ŋ,k,x
 palatal=ñ,č,š
+back=o,u
+front=a,e,i,ɨ
 graphs = .
 
 aV > aa / [C]_
@@ -20,7 +22,11 @@ eV > ii / [C]_
 iV > ii / [C]_
 oV > ou / [C]_
 uV > ou / [C]_
+[V] >^ V_ / _(([C])[C])V
 -V
+
+A > o / _(([C])[C])[back]
+A > e / _(([C])[C])[front]
 
 š > ž
 č > š
@@ -42,5 +48,7 @@ i > ə
 
 ei > ai
 ou > au
+-z / _ž
+-s / _š
 
 v > w

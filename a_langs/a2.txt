@@ -9,6 +9,8 @@ V=a,i,u,e,o,ɨ
 vl=p,t,č,k,s,š
 vd=b,d,ǰ,g,z,ž
 high=i,ɨ,u
+back=o,u
+front=a,e,i,ɨ
 graphs = .
 
 aV > aa / [C]_
@@ -17,8 +19,11 @@ eV > ii / [C]_
 iV > ii / [C]_
 oV > ou / [C]_
 uV > ou / [C]_
+[V] >^ V_ / _(([C])[C])V
 -V
 
+A > o / _(([C])[C])[back]
+A > e / _(([C])[C])[front]
 
 v > f
 
