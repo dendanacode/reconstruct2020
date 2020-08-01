@@ -132,7 +132,7 @@ def a_page():
             stem_key = stem[0] + '/' + stem[1]
             if stem[2] == 'H':
                 input[stem_key] = {'PFV':stem[0], 'IPFV':stem[1], 'HAB':stem[0] + stem[0]}
-            elif stem[2] == 'V':
+            elif stem[2] == 'V' or stem[2] == 'D':
                 input[stem_key] = {'PFV':'vA' + stem[0], 'IPFV':'vA' + stem[1], 'HAB':'vA' + stem[0] + stem[0]}
             elif stem[2] == 'N':
                 input[stem_key] = {'PFV':'ni' + stem[0], 'IPFV':'ni' + stem[1], 'HAB':'ni' + stem[0] + stem[0]}
