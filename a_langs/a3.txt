@@ -46,7 +46,6 @@ i > ə
 
 // Note: the singular inanimate genitive > əžžu for nouns which would otherwise lose the *ɨ
 
-ei > ai
 ou > au
 -z / _ž
 -s / _š

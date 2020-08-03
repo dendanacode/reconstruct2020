@@ -4,6 +4,7 @@ import streamlit as st
 from protomorpho.protomorpho import proto_verb_morpho_page
 from protoa.protoa import protoa_page
 from a_langs.a import a_page
+from protob.protob import protob_page
 
 page = st.selectbox('Page', ['Homepage'
 , 'Proto Verb Morpho'
@@ -20,6 +21,8 @@ elif page == 'Proto to A derivation':
     protoa_page()
 elif page == 'A Deriv':
     a_page()
+elif page == 'Proto to B derivation':
+    protob_page()
 elif page == 'Homepage':
     st.title('reCONstruct 2020 tools')
     st.write("""
@@ -27,11 +30,12 @@ elif page == 'Homepage':
 ### The following pages are available for use:
 * Proto Verb Morpho - conjugates verbs in the protolanguage
 * Proto to A derivation - runs sound changes between proto and A
-### The following pages may or may not be built sometime:
 * Proto to B derivation - runs sound changes between proto and B
+* A Deriv - derive words from proto-A to daughters
+### The following pages may or may not be built sometime:
 * A Verb Morpho + Deriv - conjugates verbs in A and allows you to run your own sound changes on them
 * B Verb Morpho + Deriv - same thing but with B
-* A/B Deriv - derive words from languages A or B using your own SCs
+* B Deriv - derive words from languages A or B using your own SCs
 
 -dendana
     """)
