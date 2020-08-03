@@ -12,8 +12,7 @@ def protob_page():
     st.title('proto -> B Derivamatron')
 
     show_in = st.checkbox('Show input in output', value=False)
-    pos = st.radio('Part of Speech', [# 'Noun (inan)', 'Noun (anim)',
-     'Verb', 'Other'])
+    pos = st.radio('Part of Speech', ['Noun (inan)', 'Noun (anim)', 'Verb', 'Other'])
 
     words = st.text_area('Words to derive', value='')
     output = []
@@ -27,7 +26,29 @@ def protob_page():
     #         ruleset = t.read()
     #         words = sce.run(words, ruleset, output='list')
 
-    if pos == 'Verb':
+    if pos == 'Noun (anim)':
+        temp_words = []
+        for word in words:
+            temp_words.append(word)
+            temp_words.append(word + 'ni')
+            temp_words.append(word + 'ns')
+            temp_words.append(word + 'bansi')
+            temp_words.append('')
+        words = temp_words
+
+    elif pos == 'Noun (inan)':
+        temp_words = []
+        for word in words:
+            temp_words.append(word + 'usi')
+            temp_words.append(word + 'ubsi')
+            temp_words.append(word + 'ibnut')
+            temp_words.append('')
+        words = temp_words
+        with open('protob/proto_morpho_b.txt', 'r') as t:
+            ruleset = t.read()
+            words = sce.run(words, ruleset, output='list')
+
+    elif pos == 'Verb':
         temp_words = []
         for word in words:
             temp_words.append(word)

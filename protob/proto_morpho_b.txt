@@ -2,6 +2,8 @@ C=m,n,ŋ,b,d,t,k,p,q,s,ł,l,h
 V=a,i,u
 graphs = .
 
++a / [C]_[C]Z
+-Z
 
 [C][V] >^ _CV / _([C])£
 [V][C] >^ _CV / _[C]£
