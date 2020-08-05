@@ -123,7 +123,12 @@ def protob_morpho_page():
 
 
         for w in output:
-            df = pd.DataFrame(w, columns =schema)
+            st.write(w[0][0].split(',')[0])
+            df = pd.DataFrame(w, columns =schema).drop('word', axis=1)#.drop('number', axis=1).drop('case', axis=1)
+            df["vis+num"] = df['visibility'] + '\t' + df['number']
+            df["case+def"] = df['case'] + '\t' + df['definite']
+            df = df.pivot(index='vis+num', columns='case+def', values='form')
+            df = df.iloc[::-1]
             st.write(df)
 
 
