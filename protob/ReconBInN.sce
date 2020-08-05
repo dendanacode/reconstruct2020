@@ -3,36 +3,47 @@ V=a,i,u,o
 VV=aa,ii,uu,oo
 Vstress=á,í,ú,ó
 VVstress=áá,íí,úú,óó
+U=u,ú
+I=i,í
 VVV=[Vstress],[VVstress]
 Vall=[V],[VV],[Vstress],[VVstress]
 INFLEX=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
 N=m,n,ñ,ŋ
+graphs=.,ph,th,kwh,kw,gw,kh,qh,tsh,ts,dz,rn,mw,ŋɰ,aa,ii,oo,uu,áá,íí,úú,óó,10,11,12,13,14,15,16
 
-VIS\-SG\-DIR\-NDEF > 1
-VIS\-SG\-DIR\-DEF > 2
-VIS\-SG\-OBL\-NDEF > 3
-VIS\-SG\-OBL\-DEF > 4
-VIS\-PL\-DIR\-NDEF > 5
-VIS\-PL\-DIR\-DEF > 6
-VIS\-PL\-OBL\-NDEF > 7
-VIS\-PL\-OBL\-DEF > 8
-NVIS\-SG\-DIR\-NDEF > 9
-NVIS\-SG\-DIR\-DEF > 10
-NVIS\-SG\-OBL\-NDEF > 11
-NVIS\-SG\-OBL\-DEF > 12
-NVIS\-PL\-DIR\-NDEF > 13
-NVIS\-PL\-DIR\-DEF > 14
-NVIS\-PL\-OBL\-NDEF > 15
-NVIS\-PL\-OBL\-DEF > 16
+NVISðSGðDIRðNDEF > 9
+NVISðSGðDIRðDEF > 10
+NVISðSGðOBLðNDEF > 11
+NVISðSGðOBLðDEF > 12
+NVISðPLðDIRðNDEF > 13
+NVISðPLðDIRðDEF > 14
+NVISðPLðOBLðNDEF > 15
+NVISðPLðOBLðDEF > 16
+VISðSGðDIRðNDEF > 1
+VISðSGðDIRðDEF > 2
+VISðSGðOBLðNDEF > 3
+VISðSGðOBLðDEF > 4
+VISðPLðDIRðNDEF > 5
+VISðPLðDIRðDEF > 6
+VISðPLðOBLðNDEF > 7
+VISðPLðOBLðDEF > 8
+
 
 //---
 
-Ø > U / _*[1,5,6,7,9,10,11,14,15,16]
-Ø > R
--\-
+//Ø > U / _*[1,5,6,7,9,10,11,14,15,16]
+//Ø > R
 
-R > dáki
-U > naktsi
++U / _[1,5,6,7,9,10,11,14,15,16]
++R / _[2,3,4,8,12,13]
+-ð
+
+-¶*R
+-*¶ / #_*U
+-U
+
+//R > dáki
+//U > naktsi
 
 [Vstress],[VVstress] > [V],[VV] / _*13
 
@@ -51,71 +62,9 @@ U > naktsi
 
 //Final Morphopho
 
-[u,i] > [w,y] / _[Vall]
 uu,úú,ii,íí > uw,úw,iy,íy / _[Vall]
+u > w / _[Vall] ! _[U]
+i > y / _[Vall] ! _[I]
 aa,áá,oo,óo > aɰ,áɰ,ow,ów / _[Vall]
 ai, aí > ii, íí
 au, aú > oo, óó
-
----
-
-Ø-VIS-SG-DIR-NDEF
-Ø-VIS-SG-DIR-DEF
-Ø-VIS-SG-OBL-NDEF
-Ø-VIS-SG-OBL-DEF
-Ø-VIS-PL-DIR-NDEF
-Ø-VIS-PL-DIR-DEF
-Ø-VIS-PL-OBL-NDEF
-Ø-VIS-PL-OBL-DEF
-Ø-NVIS-SG-DIR-NDEF
-Ø-NVIS-SG-DIR-DEF
-Ø-NVIS-SG-OBL-NDEF
-Ø-NVIS-SG-OBL-DEF
-Ø-NVIS-PL-DIR-NDEF
-Ø-NVIS-PL-DIR-DEF
-Ø-NVIS-PL-OBL-NDEF
-Ø-NVIS-PL-OBL-DEF
-
-
----
-
-DIR
-OBL
-NDEF
-DEF
-VIS
-NVIS
-SG
-PL
-ph
-th
-kwh
-kw
-gw
-kh
-qh
-tsh
-ts
-dz
-rn
-mw
-ŋɰ
-aa
-ii
-uu
-oo
-áá
-íí
-úú
-óó
-10
-11
-12
-13
-14
-15
-16
-
----
-
-,

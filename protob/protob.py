@@ -201,8 +201,12 @@ def protob_morpho_page():
 
     daughter = st.text_area('SCE Rules (define graphs as final category)', value=sample_daughter)
 
-    if pos == 'Noun (anim)':
-        words = st.text_area('Words to derive (comma-separated stems)', value='kambúúŋa,kamwutsŋgá,kamwuuŋu')
+    if pos == 'Noun (anim)' or pos == 'Noun (inan)':
+        words = ""
+        if pos == 'Noun (anim)':
+            words = st.text_area('Words to derive (comma-separated stems)', value='kambúúŋa,kamwutsŋgá,kamwuuŋu')
+        else:
+            words = st.text_area('Words to derive (comma-separated stems)', value='dáki,naktsi')
         features = {'visibility':['VIS', 'NVIS']
             , 'number':['SG', 'PL']
             , 'case': ['DIR', 'OBL']
@@ -222,20 +226,36 @@ def protob_morpho_page():
         #schema.append('gloss')
         schema.append('form')
         schema.append('daughter')
-        with open('protob/ReconBAnN.sce', 'r') as t:
-            ruleset = t.read()
-            for word in words.split('\n'):
-                w_out = []
-                for set in sets:
-                    line = [word]
-                    line.extend(set)
-                    gloss = word.replace(',', '¶').replace('¶', '•', 1) + 'ð' + 'ð'.join(set)
-                    #line.append(gloss)
-                    form = sce.run([gloss], ruleset, output='str')
-                    line.append(form)
-                    line.append(sce.run([form], daughter, output='str'))
-                    w_out.append(line)
-                output.append(w_out)
+        if pos == 'Noun (anim)':
+            with open('protob/ReconBAnN.sce', 'r') as t:
+                ruleset = t.read()
+                for word in words.split('\n'):
+                    w_out = []
+                    for set in sets:
+                        line = [word]
+                        line.extend(set)
+                        gloss = word.replace(',', '¶').replace('¶', '•', 1) + 'ð' + 'ð'.join(set)
+                        #line.append(gloss)
+                        form = sce.run([gloss], ruleset, output='str')
+                        line.append(form)
+                        line.append(sce.run([form], daughter, output='str'))
+                        w_out.append(line)
+                    output.append(w_out)
+        else:
+            with open('protob/ReconBInN.sce', 'r') as t:
+                ruleset = t.read()
+                for word in words.split('\n'):
+                    w_out = []
+                    for set in sets:
+                        line = [word]
+                        line.extend(set)
+                        gloss = word.replace(',', '¶') + 'ð' + 'ð'.join(set)
+                        #line.append(gloss)
+                        form = sce.run([gloss], ruleset, output='str')
+                        line.append(form)
+                        line.append(sce.run([form], daughter, output='str'))
+                        w_out.append(line)
+                    output.append(w_out)
 
 
         for w in output:
