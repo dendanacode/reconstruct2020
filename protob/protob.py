@@ -6,6 +6,118 @@ import sys
 
 from src import sce # NOTE: SCE is from https://github.com/KathTheDragon/Conlanger and is by KathTheDragon
 
+sample_daughter = """
+C=m,n,ñ,ŋ,ph,p,b,th,t,d,kwh,kw,gw,kh,k,g,qh,q,tsh,ts,dz,r,nr,l,y,ny,w,mw,ɰ,ŋɰ
+V=a,i,u,o
+VV=aa,ii,uu,oo
+Vstress=á,í,ú,ó
+VVstress=áá,íí,úú,óó
+VVV=[Vstress],[VVstress]
+Vall=[V],[VV],[Vstress],[VVstress]
+graphs=.,ph,th,kwh,kw,gw,kh,qh,tsh,ts,dz,nr,ny,mw,ŋɰ,ii,íí,uu,úú,oo,óó,aa,áá
+
+a,i > ə,ɨ / [Vall]*_#
+
+-ə
+
+//Nasal → nasal glide
+
+m,n,ñ,ŋ > mw,nr,ny,ŋɰ
+
+- y,w,y,ɰ ! #_
+
+ph,th,kh,kwh,qh,tsh > pp,tt,kk,kkw,qq,tts
+ts,dz > tt / [Vall]_[Vall]
+ts,dz > t
+
+B=b,d,gw,g,dz
+P=p,t,kw,k,ts,q
+
+b,gw > w / _#
+g > y / [i,e]_# > w / _#
+d > r / _#
+dz > y / _#
+
+[B] > :[P] / _[Vall] ! #_
+b,gw > : / [o,u]_
+d,g,q > : / [i,a]_
+[C]: > <
+[C]: > <
+[V]: > [VV]
+[Vstress]: > [VVstress]
+-:
+
+[P] > k / _g
+[P] > p / _b
+[P] > t / _d
+[P] > kw / _gw
+[B] > [P] / [P]_
+kwkw > kkw
+
+ə,ɨ > e
+u > o
+a > e
+íe,áe,óe > é,éé,éé
+V+=e
+VV+=ee
+Vstress+=é
+VVstress+=éé
+VVV=[Vstress],[VVstress]
+Vall=[V],[VV],[Vstress],[VVstress]
+
+graphs+=ee,éé,pp,tt,kk,kkw,qq
+C+=qq,pp,tt,kk,kkw,tts,ŋw
+q.q,p.p,t.t,k.k,k.kw,t.ts>qq,pp,tt,kk,kkw,tts
+
++o / [C][C]_[C]
++o / #[C]_[C]
+
+e@2 > o / _*[e,ee,é,éé]
+
+aa > a
+[V]o > aa
+[V]oo > aa
+
+[VV] > [V] / [V]_, _[V], [Vstress]_
++ʔ / [VVstress]_, [VV]_ ! _[C], _#
++ʔ / _[VVstress], _[VV] ! [C]_, #_
+
+ii > i
+i.i > ii
+ei > ii
+ie > ii
+íe,eí > íí
+eé,ée > éé
+uo > uu
+ou > oo
+úo,oú > úú
+óu,uó > óó
+áo,oá > óó
+
+N=m,n,ŋ,ŋw,ñ
+[B] > [N] / _
+NA=mw,nr,ŋw,ŋɰ,ny
+[NA][NA] > [N]
+
+[kw,kkw,ŋw] > [k,kk,ŋ]
+
+r,nr > l / #_[o,ó,oo,óó,u,ú,uu,úú,a,áá,aa,á], [o,ó,oo,óó,u,ú,uu,úú,a,áá,aa,á]_# > y / #_[e,ee,éé,é,i,ii,í,íí], [e,ee,éé,é,i,ii,í,íí]_# > ʔ / [Vall]_[Vall]
+-r,nr
+ŋɰ,ɰ > mw,w
+[NA] > ʔ / _[C], _#
+-y / _[i,íí,í,ii]
+-w / _[u,úú,ú,uu]
+
+qq > :ʔ
+q > ʔ
+
+[V]: > [VV]
+[Vstress]: > [VVstress]
+-:
+
+//-[V]ʔ
+
+"""
 
 def protob_page():
 
@@ -89,6 +201,8 @@ def protob_morpho_page():
 
     words = st.text_area('Words to derive (comma-separated stems)', value='kambúúŋa,kamwutsŋgá,kamwuuŋu')
 
+    daughter = st.text_area('SCE Rules (define graphs as final category)', value=sample_daughter)
+
     if pos == 'Noun (anim)':
         features = {'visibility':['VIS', 'NVIS']
             , 'number':['SG', 'PL']
@@ -108,6 +222,7 @@ def protob_morpho_page():
         schema.extend([feature for feature in features])
         #schema.append('gloss')
         schema.append('form')
+        schema.append('daughter')
         with open('protob/ReconBAnN.sce', 'r') as t:
             ruleset = t.read()
             for word in words.split('\n'):
@@ -117,19 +232,25 @@ def protob_morpho_page():
                     line.extend(set)
                     gloss = word.replace(',', '¶').replace('¶', '•', 1) + 'ð' + 'ð'.join(set)
                     #line.append(gloss)
-                    line.append(sce.run([gloss], ruleset, output='str'))
+                    form = sce.run([gloss], ruleset, output='str')
+                    line.append(form)
+                    line.append(sce.run([form], daughter, output='str'))
                     w_out.append(line)
                 output.append(w_out)
 
 
         for w in output:
-            st.write(w[0][0].split(',')[0])
+            st.write('## ' + w[0][0].split(',')[0])
             df = pd.DataFrame(w, columns =schema).drop('word', axis=1)#.drop('number', axis=1).drop('case', axis=1)
             df["vis+num"] = df['visibility'] + '\t' + df['number']
             df["case+def"] = df['case'] + '\t' + df['definite']
-            df = df.pivot(index='vis+num', columns='case+def', values='form')
-            df = df.iloc[::-1]
-            st.write(df)
+            df0 = df.pivot(index='vis+num', columns='case+def', values='form')
+            df_d = df.pivot(index='vis+num', columns='case+def', values='daughter')
+            df0 = df0.iloc[::-1]
+            df_d = df_d.iloc[::-1]
+            st.write(df0)
+            st.write("Daughter:")
+            st.write(df_d)
 
 
 
