@@ -11,8 +11,6 @@ page = st.selectbox('Page', ['Homepage'
 , 'Proto Verb Morpho'
 , 'Proto to A derivation'
 , 'Proto to B derivation'
-, 'A Verb Morpho + Deriv'
-, 'B Verb Morpho + Deriv'
 , 'A Deriv'
 , 'B Deriv'], index=0)
 
@@ -35,10 +33,7 @@ elif page == 'Homepage':
 * Proto to A derivation - runs sound changes between proto and A
 * Proto to B derivation - runs sound changes between proto and B
 * A Deriv - derive words from proto-A to daughters
-### The following pages may or may not be built sometime:
-* A Verb Morpho + Deriv - conjugates verbs in A and allows you to run your own sound changes on them
-* B Verb Morpho + Deriv - same thing but with B
-* B Deriv - derive words from languages A or B using your own SCs
+* B Deriv - derive words from proto-B using your own SCs, including conjugation utility for proto-B and SCs on all forms
 
 -dendana
     """)
