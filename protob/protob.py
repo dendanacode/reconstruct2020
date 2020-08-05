@@ -196,14 +196,13 @@ def protob_page():
 def protob_morpho_page():
     st.title('proto -> B Derivamatron')
 
-    show_in = st.checkbox('Show Proto-B input', value=False)
+    # show_in = st.checkbox('Show Proto-B input', value=False)
     pos = st.radio('Part of Speech', ['Noun (inan)', 'Noun (anim)', 'Verb', 'Other'])
-
-    words = st.text_area('Words to derive (comma-separated stems)', value='kambúúŋa,kamwutsŋgá,kamwuuŋu')
 
     daughter = st.text_area('SCE Rules (define graphs as final category)', value=sample_daughter)
 
     if pos == 'Noun (anim)':
+        words = st.text_area('Words to derive (comma-separated stems)', value='kambúúŋa,kamwutsŋgá,kamwuuŋu')
         features = {'visibility':['VIS', 'NVIS']
             , 'number':['SG', 'PL']
             , 'case': ['DIR', 'OBL']
@@ -251,6 +250,14 @@ def protob_morpho_page():
             st.write(df0)
             st.write("Daughter:")
             st.write(df_d)
+
+    else:
+        words = st.text_area('Words to derive', value='a')
+        words = words.split('\n')
+        output = sce.run(words, daughter, output='list')
+        for w in output:
+            st.write(w)
+
 
 
 
